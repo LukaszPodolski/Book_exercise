@@ -1,8 +1,19 @@
 import matplotlib.pyplot as plt
 
-x_values = [10,8,8,6,7,5,6]
-y_values  = [1,4,5,8,9,4,6]
-fig, ax = plt.subplots()
-ax.plot(x_values)
-ax.scatter(x_values,y_values, s=11)
-plt.show()
+from Random_gen import RandomWalk
+
+while True:
+    iteration_number = input("enter the number of iterations: ")
+    rw = RandomWalk(num_points = int(iteration_number)) # sktócenie nazwy class'y + ładuję liczbe iteracji do cslss'y
+    rw.fill_walk() # uruchomienie metody fill walk w classie RandomWalk
+
+    plt.style.use('classic') # styl wykresu
+    plt.subplots() # funkcja która generuje wykres
+    point_numbers = list(range(int(iteration_number)))
+
+    plt.scatter(rw.x_values, rw.y_values,c=point_numbers,cmap=plt.cm.Blues,edgecolor='none', s=15) #unkcji scatter() można przekazać listę oddzielnych wartości X i Y; wielkośc kropki s=15
+    plt.show()
+
+    keep_running = input("Utworzyć kolejne błądzenie losowe? (t/n): ")
+    if keep_running == 'n':
+        break
