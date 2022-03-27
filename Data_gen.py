@@ -9,9 +9,9 @@ while True:
 
     plt.style.use('classic') # styl wykresu
     plt.subplots() # funkcja która generuje wykres
-    point_numbers = list(range(int(iteration_number)))
 
-    plt.scatter(rw.x_values, rw.y_values,c=point_numbers,cmap=plt.cm.Blues,edgecolor='none', s=15) #unkcji scatter() można przekazać listę oddzielnych wartości X i Y; wielkośc kropki s=15
+    point_numbers = list(range(int(iteration_number))) #pod kolorowanke
+    plt.scatter(rw.x_values, rw.y_values,c=point_numbers,cmap=plt.cm.Blues,edgecolor='none', s=15) #unkcji scatter() można przekazać listę oddzielnych wartości X i Y; wielkośc kropki s=15; kolorowanka punktów od c=....
     plt.show()
 
     keep_running = input("Utworzyć kolejne błądzenie losowe? (t/n): ")
